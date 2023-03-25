@@ -12,10 +12,13 @@ body {
   color: #333;
   font-size: 16px;
   line-height: 1.5;
+  background-image: url(./imagenes/avion3.webp);
+  background-size: cover;
+  height: 80vh;
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 50px;
   font-weight: 700;
   text-align: center;
   margin-top: 50px;
@@ -88,4 +91,12 @@ button[type="submit"]:hover {
   font-size: 16px;
   font-weight: 400;
   margin-bottom: 10px;
+}
+
+#saludo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
