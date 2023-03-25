@@ -37,12 +37,26 @@ con la disponibilidad más inmediata entre dos aeropuertos para una persona.
 	      de tres (3) caracteres.
 	2.2 - Confirmar la disponibilidad y presentarla en la misma interfaz haciendo el
          llamado de los métodos form.
+	 
+
+3 - Las fuentes utilizadas para el Desarrollo de la aplicación fueron entre otras:
+
+https://en.wikipedia.org/wiki/Lists_of_airports_by_IATA_and_ICAO_code
+
+https://developers.amadeus.com/self-service/category/air
+	
+	
 
 
 
-######################################![fondo_guay](https://user-images.githubusercontent.com/123706095/227736865-a85cc670-29e6-4b4e-ad61-08d42d208b51.gif)#########################
 
 
+
+
+
+
+
+###################################################################![Logo_pie_de_pag](https://user-images.githubusercontent.com/123706095/227745452-770ecd39-babe-4f27-9ced-d3e0a0f8c210.png)
 
 
 
@@ -51,6 +65,10 @@ con la disponibilidad más inmediata entre dos aeropuertos para una persona.
 Esperemos les sea de su gusto y consigáis todos los pasajes que necesiteis en tiempo real! 😮
 
 Recordad que cualquier sugerencia la podremos recibir sin inconvenientes para las mejoras. 🫵🏼
+
+
+
+
 
 
 
