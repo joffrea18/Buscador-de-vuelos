@@ -4,10 +4,59 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Buscador de vuelos</title>
+    <title>FlyWithMe</title>
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <h1>Buscador Vuelos</h1>
+    <div class="console-container">
+      <span id="text"></span>
+      <div class="console-underscore" id="console">&#95;</div>
+    </div>
+    <form id="search-form">
+      <label for="origin">Aeropuerto de origen:</label>
+      <div class="inputContainer">
+        <input
+          type="text"
+          id="origin"
+          name="origin"
+          minlength="15"
+          required
+          form="novalidatedform"
+          placeholder="Introduce un código de aeropuerto o una ciudad y pulsa INTRO"
+        />
+        <img
+          id="loaderOrigin"
+          class="loaderOrigin"
+          src="./img/inputLoading.gif"
+        />
+      </div>
+      <ul id="originToolTip">
+        <li></li>
+      </ul>
+      <label for="destination">Aeropuerto de destino:</label>
+      <div class="inputContainer">
+        <input
+          type="text"
+          id="destination"
+          name="destination"
+          minlength="15"
+          required
+          form="novalidatedform"
+          placeholder="Introduce un código de aeropuerto o una ciudad y pulsa INTRO"
+        />
+        <img
+          id="loaderDestination"
+          class="loaderDestination"
+          src="./img/inputLoading.gif"
+        />
+      </div>
+      <ul id="destinationToolTip">
+        <li></li>
+      </ul>
+      <button type="submit">Buscar vuelo</button>
+    </form>
+    <section id="result"></section>
     <script type="module" src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>
