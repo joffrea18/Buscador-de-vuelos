@@ -14,7 +14,8 @@ body {
   line-height: 1.5;
   background-image: url(./imagenes/avion3.webp);
   background-size: cover;
-  height: 80vh;
+  height: 90vh;
+  /* MIRAR POSICION CUANDO SEA RESPONSIVE!  */
 }
 
 h1 {
@@ -26,7 +27,18 @@ h1 {
 }
 
 form {
-  max-width: 600px;
+  background-color: #333;
+  max-width: 450px;
+  max-height: 350px;
+  margin: 0 auto;
+  padding: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+form.day {
+  max-width: 450px;
+  max-height: 350px;
   margin: 0 auto;
   padding: 30px;
   background-color: #fff;
@@ -34,11 +46,20 @@ form {
   border-radius: 8px;
 }
 
+label.dia {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
 label {
   display: block;
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: 500;
+  color: #ddd;
 }
 
 input[type="text"] {
@@ -99,4 +120,161 @@ button[type="submit"]:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+#dark {
+  display: flex;
+  padding: 5px;
+  background: transparent;
+  border: 2px solid #d12d26;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: auto;
+}
+
+img {
+  border-radius: 12px;
+  width: 30px;
+  height: 30px;
+}
+
+footer {
+  display: block;
+  text-align: center;
+}
+
+.Iam {
+  padding: 2em 5em;
+  font: normal 40px/50px Montserrat, sans-serif;
+  color: #999;
+}
+.Iam p {
+  height: 50px;
+  float: left;
+  margin-right: 0.3em;
+}
+.Iam b {
+  float: left;
+  overflow: hidden;
+  position: relative;
+  height: 50px;
+  top: 40px;
+}
+.Iam .innerIam {
+  display: block;
+  color: black;
+  position: relative;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+
+  /*ANIMACION*/
+  -webkit-animation: move 7s;
+  -moz-animation: move 7s;
+  -ms-animation: move 7s;
+  -o-animation: move 7s;
+  animation: move 7s;
+
+  /*ANIMACION-ITERACION-COUNT*/
+
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+
+  /*ANIMACION-DELAY*/
+
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -ms-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  animation-delay: 2s;
+}
+@keyframes move {
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
+}
+
+@-webkit-keyframes move {
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
+}
+@-moz-keyframes move {
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
+}
+@-o-keyframes move {
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
+}
+@keyframes move {
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
 }

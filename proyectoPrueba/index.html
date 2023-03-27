@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,12 +8,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>FlyWithMe</h1>
-    <h2 id="saludo"></h2>
-    <form id="search-form">
-      <label for="origin">Aeropuerto de origen:</label>
+    <header>
+      <button type="button" id="dark">
+        <img src="./imagenes/dia-y-noche.png" alt="" />
+      </button>
+      <h1 id="saludo"></h1>
+    </header>
+    <form id="search-form" class="day">
+      <label for="origin" class="dia">Aeropuerto de origen:</label>
       <input type="text" id="origin" name="origin" maxlength="3" required />
-      <label for="destination">Aeropuerto de destino:</label>
+      <label for="destination" class="dia">Aeropuerto de destino:</label>
       <input
         type="text"
         id="destination"
@@ -23,6 +27,17 @@
       />
       <button type="submit">Buscar vuelo</button>
     </form>
+    <footer class="Iam">
+      <p></p>
+      <b>
+        <section id="animation" class="innerIam">
+          Vuela con nosotros<br />
+          Tu mejor opción<br />
+          Nosotros te la mostramos<br />
+          <br />
+        </section>
+      </b>
+    </footer>
     <script src="./script.js"></script>
   </body>
 </html>
