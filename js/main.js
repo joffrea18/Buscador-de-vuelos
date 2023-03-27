@@ -60,7 +60,7 @@ async function clickHandler(e) {
   let timerInterval;
   Swal.fire({
     title: "¡Buscando tu mejor vuelo!",
-    html: "Espera un momento, estamos buscando <strong>el mejor vuelo</strong> para ti",
+    html: "Espera un momento, estamos buscando <strong>el mejor vuelo</strong> para ti para el día de mañana",
     timer: 65000,
     timerProgressBar: true,
     didOpen: () => {
@@ -85,20 +85,86 @@ async function clickHandler(e) {
       return a - b;
     });
     console.log(vuelosOrdenados[0]);
-    sectionElement.innerHTML = `<h2>El mejor vuelo para ti</h2>
-    <p><strong>Asientos disponibles:</strong> ${vuelosOrdenados[0].numberOfBookableSeats}</p>
-    <p><strong>Precio por viajero:</strong> ${vuelosOrdenados[0].price.grandTotal}</p>
-    `;
-    sectionElement.style.display = "block";
+
+    Swal.fire({
+      title: "<strong>¡VUELO ENCONTRADO!</strong>",
+      width: 800,
+      icon: "info",
+      html: `<h2>Hemos encontrado este vuelo para mañana</h2>
+      <p><strong>Asientos disponibles:</strong> ${
+        vuelosOrdenados[0].numberOfBookableSeats
+      }</p>
+      <p><strong>Precio por viajero:</strong> ${
+        vuelosOrdenados[0].price.grandTotal
+      } €</p>
+      <p><strong>Duración total:</strong> ${vuelosOrdenados[0].itineraries[0].duration.substring(
+        2
+      )}</p>
+      <table class="segmentTable">
+      <thead>
+      <th>Id Segmento</th>
+      <th>Avión</th>
+      <th>Salida</th>
+      <th>Llegada</th>
+      <th>Vuelo nº</th>
+      <th>Aerolínea</th>
+      <th>Duración</th>
+      </thead>
+      <tbody>
+      ${segments(vuelosOrdenados[0].itineraries[0].segments)}
+      </tbody>
+      </table>
+      `,
+      focusConfirm: false,
+      confirmButtonText: '<i class="fa fa-thumbs-up"></i> ¡Me lo quedo!',
+    });
   } catch (error) {
     Swal.close();
     Swal.fire({
       icon: "error",
       title: "Algo fue mal",
-      text: "Vuelve a intentar la búsqueda",
-      footer: error.message,
+      text: "Parece que no hay vuelos disponibles para este origen/destino",
     });
   }
+}
+
+function segments(arraySegments) {
+  let documentFragment = "";
+  for (let segment of arraySegments) {
+    documentFragment += "<tr>";
+    let departureDate = new Date(segment.departure.at);
+    let arrivalDate = new Date(segment.arrival.at);
+    let departureDateString = `${departureDate.getDate()}/${
+      departureDate.getMonth() + 1
+    }/${departureDate.getFullYear()} ${departureDate.getHours()}:${(
+      "0" + departureDate.getMinutes()
+    ).slice(-2)}`;
+    let arrivalDateString = `${arrivalDate.getDate()}/${
+      arrivalDate.getMonth() + 1
+    }/${arrivalDate.getFullYear()} ${arrivalDate.getHours()}:${(
+      "0" + arrivalDate.getMinutes()
+    ).slice(-2)}`;
+    documentFragment += `<td>${segment.id}</td>`;
+    documentFragment += `<td>${segment.aircraft.code}</td>`;
+    documentFragment += `<td>${departureDateString}<br/>desde ${
+      segment.departure.iataCode
+    }${
+      segment.departure.terminal !== void 0
+        ? "<br/>Terminal " + segment.departure.terminal
+        : ""
+    }</td>`;
+    documentFragment += `<td>${arrivalDateString}</br>hasta ${
+      segment.arrival.iataCode
+    }${
+      segment.arrival.terminal !== void 0
+        ? "<br/>Terminal " + segment.arrival.terminal
+        : ""
+    }</td>`;
+    documentFragment += `<td>${segment.carrierCode}-${segment.number}</td>`;
+    documentFragment += `<td>${segment.carrierCode}</td>`;
+    documentFragment += `<td>${segment.duration.substring(2)}</td></tr>`;
+  }
+  return documentFragment;
 }
 
 function originInputHandlers(e) {

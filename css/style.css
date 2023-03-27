@@ -9,10 +9,22 @@
 
 body {
   background-image: url(../img/fly-background.jpg);
-  background-size: cover;
+  background-size: 115%;
   color: #333;
   font-size: 16px;
   line-height: 1.5;
+}
+
+.segmentTable,
+th,
+td {
+  border: 1px solid;
+  border-collapse: collapse;
+}
+
+.segmentTable {
+  background-color: lightgrey;
+  width: 100%;
 }
 
 h1 {
