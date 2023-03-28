@@ -8,30 +8,95 @@
 }
 
 body {
-	/* background-color: #f6f6f6; */
-	background-image: url(https://img.freepik.com/vector-gratis/cielo-blanco-escena-diurna-paisaje-inundaciones-blanco_1308-57834.jpg?t=st=1679758882~exp=1679759482~hmac=01267a0154dd788da585e88f232393498fcdb2870ecfa1620c9b6b9d15a3909e);
+	background-image: url(../img/fly-background.jpg);
+	background-size: cover;
 	color: #333;
 	font-size: 16px;
 	line-height: 1.5;
 }
 
+.segmentTable,
+th,
+td {
+	border: 1px solid;
+	border-collapse: collapse;
+}
+
+.segmentTable {
+	background-color: lightgrey;
+	width: 100%;
+}
+
 h1 {
-	font-size: 36px;
+	font-size: 4rem;
 	font-weight: 700;
 	text-align: center;
 	margin-top: 50px;
 	margin-bottom: 30px;
-	text-shadow: 4px 6px 4px grey;
 }
 
 form {
 	max-width: 600px;
+	display: flex;
 	margin: 0 auto;
 	padding: 30px;
 	background-color: #fff;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	box-shadow: 16px 16px 13px rgba(0, 0, 0, 0.5);
 	border-radius: 8px;
-	text-shadow: 9px 6px 9px black;
+	flex-direction: column;
+	position: relative;
+}
+
+.autocomplete {
+	/*El contenedor debe estar en posición relativa*/
+	position: relative;
+	display: inline-block;
+}
+
+ul {
+	background-color: lightpink;
+	list-style: none;
+	flex-direction: column;
+	position: absolute;
+	padding: 0.8rem;
+}
+
+ul#originToolTip {
+	top: 6.7rem;
+	display: none;
+}
+
+ul#destinationToolTip {
+	top: 12.8rem;
+	display: none;
+}
+
+/* Estos de abajo no se aplican a nada */
+/* a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	background-color: lightyellow;
+} */
+
+.loaderOrigin,
+.loaderDestination {
+	width: 2rem;
+	height: 2rem;
+	position: absolute;
+	display: none;
+}
+
+.loaderOrigin {
+	right: 40px;
+	top: 4.3rem;
+}
+
+.loaderDestination {
+	right: 40px;
+	top: 10.3rem;
 }
 
 label {
@@ -51,8 +116,19 @@ input[type="text"] {
 	margin-bottom: 20px;
 }
 
+#result {
+	background-color: lightcyan;
+	color: black;
+	border-radius: 10px;
+	display: none;
+	text-align: center;
+}
+
 button[type="submit"] {
 	background-color: #fc3d34;
+	display: flex;
+	margin: 0 auto;
+	justify-content: center;
 	color: #fff;
 	border: none;
 	padding: 10px 20px;
@@ -61,11 +137,12 @@ button[type="submit"] {
 	font-weight: 500;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
+	flex-direction: row;
+	align-content: flex-start;
 }
 
 button[type="submit"]:hover {
 	background-color: #d12d26;
-	text-shadow: 9px 6px 9px black;
 }
 
 .resultados {
@@ -94,30 +171,30 @@ button[type="submit"]:hover {
 	margin-bottom: 10px;
 }
 
-@media (max-width: 500px) {
-	form {
-		max-width: 450px;
-		/* margin: 0 auto;
-        padding: 30px;
-        background-color: #fff;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 8px; */
-	}
-
-	button[type="submit"] {
-		/* background-color: #fc3d34;
-        color: #fff;
-        border: none; */
-		padding: 7px 15px;
-		border-radius: 3px;
-		/* font-size: 16px;
-        font-weight: 500; */
-		/* cursor: pointer;
-        transition: background-color 0.3s ease; */
-	}
-
-	button[type="submit"]:hover {
-		/* background-color: #d12d26; */
-		text-shadow: 9px 6px 9px black;
-	}
+.hidden {
+	opacity: 0;
 }
+.console-container {
+	font-family: Khula;
+	font-size: 4em;
+	text-align: center;
+	width: 600px;
+	display: block;
+	color: white;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+.console-underscore {
+	display: inline-block;
+	position: relative;
+	top: -0.14em;
+	left: 10px;
+}
+
+/* media (min-heigth 550vh, max-width 550vw) {
+} */
