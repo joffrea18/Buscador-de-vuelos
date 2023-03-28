@@ -1,5 +1,20 @@
 "use strict";
 
+// Con esto debo guardar los datos en el array.
+
+const inputOrigin = {
+	origin: [],
+	destination: [],
+};
+
+const addInfo = (origin, destination) => {
+	inputOrigin.origin.push(origin);
+	inputOrigin.destination.push(destination);
+};
+
+// export default inputOrigin;
+// export { addInfo };
+
 function autocomplete(inp, arr) {
 	// La función toma dos argumentos, el texto y el array donde cogerá los elementos
 	var currentFocus;
