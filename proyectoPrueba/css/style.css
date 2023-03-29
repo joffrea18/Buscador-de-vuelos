@@ -123,9 +123,8 @@ button[type="submit"]:hover {
   text-align: center;
 }
 
-#dark {
+button[type="button"] {
   display: flex;
-  padding: 5px;
   background: transparent;
   border: 2px solid #d12d26;
   border-radius: 5px;
@@ -134,10 +133,19 @@ button[type="submit"]:hover {
   margin-left: auto;
 }
 
-img {
+/* button[type="button"]:hover {
+} */
+
+#imagen {
+  display: flex;
   border-radius: 12px;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+}
+
+button > img {
+  background-image: url(/proyectoPrueba/imagenes/sol.png);
 }
 
 /* footer {

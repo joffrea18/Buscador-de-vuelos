@@ -36,7 +36,9 @@ setTimeout(function () {
 const buttonDark = document.querySelector("#dark");
 const form = document.querySelector("form");
 const labels = document.querySelectorAll("label.dia");
+
 const elementsWithDayClass = document.querySelectorAll(".day");
+const seleccionarImagen = document.querySelector("img");
 
 buttonDark.addEventListener("click", () => {
   form.classList.toggle("day");
@@ -53,8 +55,15 @@ buttonDark.addEventListener("click", () => {
 buttonDark.addEventListener("click", () => {
   form.classList.toggle("day");
   if (form.classList.contains("day")) {
-    body.style.backgroundColor = "#fff";
+    form.style.backgroundColor = "#fff";
   } else {
-    body.style.backgroundColor = "#f6f6f6";
+    form.style.backgroundColor = "#333";
   }
 });
+
+// FUNCION PARA CAMBIAR LA IMAGEN DEL BOTON
+
+// buttonDark.addEventListener("click", () => {
+//   seleccionarImagen.setAttribute("displas:none");
+//   console.log("Esta funcionando");
+// });
