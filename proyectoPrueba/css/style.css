@@ -12,8 +12,9 @@ body {
   color: #333;
   font-size: 16px;
   line-height: 1.5;
-  background-image: url(./imagenes/avion3.webp);
+  background-image: url(/proyectoPrueba/imagenes/bali.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
   height: 90vh;
   /* MIRAR POSICION CUANDO SEA RESPONSIVE!  */
 }
@@ -139,142 +140,40 @@ img {
   height: 30px;
 }
 
-footer {
-  display: block;
+/* footer {
+  background-color: #333;
+  color: #d12d26;
   text-align: center;
+  height: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.evento-galeria {
+  display: flex;
+  height: 20rem;
+  gap: 1rem;
 }
 
-.Iam {
-  padding: 2em 5em;
-  font: normal 40px/50px Montserrat, sans-serif;
-  color: #999;
-}
-.Iam p {
-  height: 50px;
-  float: left;
-  margin-right: 0.3em;
-}
-.Iam b {
-  float: left;
-  overflow: hidden;
-  position: relative;
-  height: 50px;
-  top: 40px;
-}
-.Iam .innerIam {
-  display: block;
-  color: black;
-  position: relative;
-  white-space: nowrap;
-  top: 0;
-  left: 0;
-
-  /*ANIMACION*/
-  -webkit-animation: move 7s;
-  -moz-animation: move 7s;
-  -ms-animation: move 7s;
-  -o-animation: move 7s;
-  animation: move 7s;
-
-  /*ANIMACION-ITERACION-COUNT*/
-
-  -webkit-animation-iteration-count: infinite;
-  -moz-animation-iteration-count: infinite;
-  -ms-animation-iteration-count: infinite;
-  -o-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-
-  /*ANIMACION-DELAY*/
-
-  -webkit-animation-delay: 2s;
-  -moz-animation-delay: 2s;
-  -ms-animation-delay: 2s;
-  -o-animation-delay: 2s;
-  animation-delay: 2s;
-}
-@keyframes move {
-  0% {
-    top: 0px;
-  }
-  20% {
-    top: -50px;
-  }
-  40% {
-    top: -100px;
-  }
-  60% {
-    top: -150px;
-  }
-  80% {
-    top: -200px;
-  }
+.evento-galeria > section {
+  flex: 1;
+  border-radius: 1rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  transition: all 0.8s cubic-bezier(0.25, 0.4, 0.45, 1.4);
 }
 
-@-webkit-keyframes move {
-  0% {
-    top: 0px;
-  }
-  20% {
-    top: -50px;
-  }
-  40% {
-    top: -100px;
-  }
-  60% {
-    top: -150px;
-  }
-  80% {
-    top: -200px;
-  }
+.evento-galeria > section:hover {
+  flex: 5;
 }
-@-moz-keyframes move {
-  0% {
-    top: 0px;
+
+@media (max-width: 400px) {
+  form {
+    width: 275px;
   }
-  20% {
-    top: -50px;
-  }
-  40% {
-    top: -100px;
-  }
-  60% {
-    top: -150px;
-  }
-  80% {
-    top: -200px;
-  }
-}
-@-o-keyframes move {
-  0% {
-    top: 0px;
-  }
-  20% {
-    top: -50px;
-  }
-  40% {
-    top: -100px;
-  }
-  60% {
-    top: -150px;
-  }
-  80% {
-    top: -200px;
-  }
-}
-@keyframes move {
-  0% {
-    top: 0px;
-  }
-  20% {
-    top: -50px;
-  }
-  40% {
-    top: -100px;
-  }
-  60% {
-    top: -150px;
-  }
-  80% {
-    top: -200px;
-  }
-}
+} ;
