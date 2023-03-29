@@ -15,8 +15,13 @@ body {
   background-image: url(/proyectoPrueba/imagenes/bali.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 90vh;
+  height: 100vh;
   /* MIRAR POSICION CUANDO SEA RESPONSIVE!  */
+}
+
+header {
+  display: flex;
+  height: 150px;
 }
 
 h1 {
@@ -31,7 +36,7 @@ form {
   background-color: #333;
   max-width: 450px;
   max-height: 350px;
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 30px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -40,7 +45,7 @@ form {
 form.day {
   max-width: 450px;
   max-height: 350px;
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 30px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -123,31 +128,52 @@ button[type="submit"]:hover {
   text-align: center;
 }
 
-button[type="button"] {
+button.inicial {
   display: flex;
+  height: 40px;
+  background: transparent;
+  border: 2px solid #d12d26;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: auto;
+  align-items: flex-end;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+}
+
+button.inicial > img {
+  height: 100%;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/* button.inicial2 {
+  background-image: url(/proyectoPrueba/imagenes/luna.png);
+  display: flex;
+  height: 40px;
   background: transparent;
   border: 2px solid #d12d26;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-left: auto;
-}
-
-/* button[type="button"]:hover {
+  align-items: flex-end;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
 } */
 
-#imagen {
+/* #imagen {
   display: flex;
   border-radius: 12px;
   width: 40px;
   height: 40px;
   padding: 10px;
-}
-
-button > img {
-  background-image: url(/proyectoPrueba/imagenes/sol.png);
-}
-
+} */
+/*  
 /* footer {
   background-color: #333;
   color: #d12d26;
@@ -180,8 +206,8 @@ button > img {
   flex: 5;
 }
 
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
   form {
     width: 275px;
   }
-} ;
+} ; */

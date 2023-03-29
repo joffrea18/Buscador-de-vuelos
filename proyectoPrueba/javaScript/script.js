@@ -36,7 +36,6 @@ setTimeout(function () {
 const buttonDark = document.querySelector("#dark");
 const form = document.querySelector("form");
 const labels = document.querySelectorAll("label.dia");
-
 const elementsWithDayClass = document.querySelectorAll(".day");
 const seleccionarImagen = document.querySelector("img");
 
@@ -63,7 +62,13 @@ buttonDark.addEventListener("click", () => {
 
 // FUNCION PARA CAMBIAR LA IMAGEN DEL BOTON
 
-// buttonDark.addEventListener("click", () => {
-//   seleccionarImagen.setAttribute("displas:none");
-//   console.log("Esta funcionando");
-// });
+buttonDark.addEventListener("click", () => {
+  if (
+    seleccionarImagen.getAttribute("src") ===
+    "/proyectoPrueba/imagenes/luna.png"
+  ) {
+    seleccionarImagen.setAttribute("src", "/proyectoPrueba/imagenes/sol.png");
+  } else {
+    seleccionarImagen.setAttribute("src", "/proyectoPrueba/imagenes/luna.png");
+  }
+});
