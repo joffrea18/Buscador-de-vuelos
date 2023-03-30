@@ -36,6 +36,13 @@
       <h1 id="saludo"></h1>
     </header>
     <form id="search-form" class="day">
+      <label class="dia" for="classSelector">Seleciona una clase</label>
+      <select id="classSelector">
+        <option value="ECONOMY">Económica</option>
+        <option value="ECONOMY_PREMIUM">Económica premium</option>
+        <option value="BUSINESS">Business</option>
+        <option value="FIRST">Primera</option>
+      </select>
       <label for="origin" class="dia">Aeropuerto de origen:</label>
       <input type="text" id="origin" name="origin" maxlength="3" required />
       <label for="destination" class="dia">Aeropuerto de destino:</label>
@@ -67,6 +74,7 @@
         style="background-image: url(./imagenesEventos/riviera-maya-cenote.jpg)"
       ></section>
     </section>
+    <footer>© 2023 by JSB18RT Team - A</footer>
     <script src="./javaScript/script.js"></script>
   </body>
 </html>
