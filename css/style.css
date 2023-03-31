@@ -18,7 +18,8 @@ body {
 	color: #333;
 	font-size: 16px;
 	line-height: 1.5;
-	background-image: url(../img/grecia.jpg);
+	/* background-image: url(../img/grecia.jpg); */
+	background-image: url(../img/agua.webp);
 }
 
 body.dark {
@@ -283,7 +284,7 @@ button[type="submit"]:hover {
 	color: #fff;
 }
 
-@media (min-width: 500px) {
+@media (max-width: 500px) {
 	div {
 		/* width: 100%; */
 		height: auto;
@@ -295,7 +296,10 @@ button[type="submit"]:hover {
 	} */
 
 	form {
-		width: 300vw;
+		width: 60vw;
+	}
+	body {
+		background-image: url(../img/montaña.jpeg);
 	}
 
 	/* buttton[type="clase"] {

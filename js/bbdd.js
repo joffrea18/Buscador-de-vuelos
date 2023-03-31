@@ -765,25 +765,79 @@ let codAirports = [
 
 // export { codAirports };
 
-function inputAirOrigin(e) {
-	window.setInterval(() => {
-		if (e.key == codAirports[i].cod) {
-			// la condición de que si ese array devuelto cumple con:
-			if (e.target.value.length >= 1) {
-				let ulDestinationToolTip = document.querySelector(
-					"#destinationToolTip"
-				);
-				let h = codAirports[i].cod + " " + codAirports[i].airport;
-				// Creo un Li para agregar los resultados
-				let autocompLi = document.createElement("li");
-				autocompLi.innerHTML = `${h}`;
-				// Agrego
-				ulDestinationToolTip.append(autocompLi);
-			}
-			console.log(e);
+// ############################################
+// ############ CONCLUSIÓN ####################
+
+let input1 = document.getElementById("originToolTip");
+
+input1.addEventListener("keyup", (event) => {
+	console.log(event);
+	// Caturo el evento
+	// Me falta confirmar los datos entre event y codAirports.cod
+	if (event.target.value.length === 0) {
+		// Reservo un espacio en el DOM
+		let domOriginLi = event.createDocumentFragment();
+		// Si es true con el for mostrarlos
+		// for (let i = 0; i < codAirports.length; i++) {
+		for (let f of codAirports) {
+			// Imprimo los cód de los airports como string para imprimir en interfaz
+			let h = codAirports[i].cod + " " + codAirports[i].airport;
+			console.log(h);
+			// Hasta aquí imprime bien pero todos.
+			// Pienso que quizas un filter me vendría bien...
+			// Debo agregar en el ul cada li.
+			let plusLi = document.createElement("li");
+			plusLi.innerHTML = `${h}`;
+			// Permitir el evento click sobre el seleccionado
+			plusLi.addEventListener("click", (plusLiEvent) => {
+				// Almaceno el texto de lo que seleccioné
+				let capturePlusE = plusLiEvent.target.textContent;
+				// enfoco
+				input1.select();
+				// selecciono
+				input1.select();
+			});
+			// Imprimir el seleccionado en el input
+			domOriginLi.appenChild(plusLi);
+			// Repetir para cada input
 		}
-	});
-}
+	} else {
+		// Reservo un espacio en el DOM
+		let domOriginLi1 = event.createDocumentFragment();
+		// Debo pensar como desarrollarlo...
+		// Debo agregar en el ul cada li.
+		let plusLi1 = document.createElement("li");
+		// Guardo la variable del mensaje que quiero mostrar
+		let indicate = "Datos no válidos";
+		// Agrego
+		plusLi1.innerHTML = `${indicate}`;
+		// Imprimo
+		domOriginLi1.appenChild(plusLi1);
+	}
+});
+
+// ########################################################
+// ########## CON EL H ME IMPRIME TODOS ###################
+
+// function inputAirOrigin(e) {
+// 	window.setInterval(() => {
+// 		if (e.key == codAirports[i].cod) {
+// 			// la condición de que si ese array devuelto cumple con:
+// 			if (e.target.value.length >= 1) {
+// 				let ulDestinationToolTip = document.querySelector(
+// 					"#destinationToolTip"
+// 				);
+// 				let h = codAirports[i].cod + " " + codAirports[i].airport;
+// 				// Creo un Li para agregar los resultados
+// 				let autocompLi = document.createElement("li");
+// 				autocompLi.innerHTML = `${h}`;
+// 				// Agrego
+// 				ulDestinationToolTip.append(autocompLi);
+// 			}
+// 			console.log(e);
+// 		}
+// 	});
+// }
 
 // Llamo los inputs
 // let autocompleteOriginAirport = document.getElementById("#origin");
