@@ -48,11 +48,25 @@ con la disponibilidad más inmediata entre dos aeropuertos para una persona.
 
 3 - Las fuentes utilizadas para el Desarrollo de la aplicación fueron entre otras:
 
-https://en.wikipedia.org/wiki/Lists_of_airports_by_IATA_and_ICAO_code
+- En este primer link nos pudimos referenciar los datos de los COD de aeropuertos.
+	https://en.wikipedia.org/wiki/Lists_of_airports_by_IATA_and_ICAO_code
 
-https://sweetalert2.github.io/
+- Aquí podremos entrar a la plataforma de extracción de datos de las Apis, en la cual según lo que necesitéis podéis extraer los datos de las diferentes Apis asociadas en la plataforma.
+	
+	https://developers.amadeus.com/self-service/category/air
 
-https://developers.amadeus.com/self-service/category/air
+- A través de este link podéis recordar los usos del form que utilizamos para recorrer el Formulario.
+	(Formulario que corresponde al front principal del viewport)
+
+    https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation
+
+
+
+
+- Para mayor información del uso de método Fetch que necesitaremos al recorrer el Json que extraemos al llamar a la Api.
+
+    https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
 
 
 
