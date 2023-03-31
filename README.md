@@ -33,20 +33,38 @@ con la disponibilidad más inmediata entre dos aeropuertos para una persona.
 	f - Ejecutaremos las condicionantes los cuales nos darán acceso a los
 	    posibles panoramas que se puedan presentar if{}else{}.
 
-2 - El alcance de lo Desarrollado será:
+2 - El alcance de la Aplicación Desarrollada será:
 
 	2.1 - Verificar las iniciales introducidas, las cuales no podrán pasar de una longitud
 	      de tres (3) caracteres.
-	2.2 - Recibir los datos introducidos y contrastarlos para mediante el autocompletado,
-	      presentar las opciones semejantes.
+	
 	2.3 - Validar los datos de origen y destino introducidos e imprimir el número de asientos,
 	      Fechas y precio disponibles.
-	2.4 - Se va a permitir la optativa de la clase mediante la cual deseas viajar, ECONOMY,
-	      PREMIUM_ECONOMY, BUSINESS, FIRST.
-	 
+	      
+	2.4 - La aplicación asume que el vuelo es para una persona y con fecha del día siguiente al      	       actual.
+	
+	2.5 - Si hay algún error (aeropuertos no existen, no hay vuelos, error de conexión, etc...) la 		      aplicación informará del error en pantalla.
+	
+	2.6 - La aplicación permite repetir la búsqueda con otros aeropuertos.
+
+	
+
+3 - Adicionalmente a los alcances del Desarrollo solicitado, el equipo A, ha decidido la implementación 	de algunos alcances adicionales, como lo son:
+
+	3.1 - La interfaz de inicio será interactiva, permitiendote mover por el front y
+	      desplazarte entre las distintas imágenes que podemos presentarte.
+
+	3.2 - Se va a permitir la optativa de la clase mediante la cual deseas viajar, Económica,
+	      Económica-Premium, Negocios, Primera CLase.
+	      
+	      3.1.1 - Se mostrarán los resultados basados en tus parámetros indicados.
+	      
+	3.3 - Recibir los datos introducidos y contrastarlos para mediante el autocompletado,
+	      presentar las opciones semejantes.
+	 	
 
 
-3 - Las fuentes utilizadas para el Desarrollo de la aplicación fueron entre otras:
+4 - Las fuentes utilizadas para el Desarrollo de la aplicación fueron entre otras:
 
 - En este primer link nos pudimos referenciar los datos de los COD de aeropuertos.
 	https://en.wikipedia.org/wiki/Lists_of_airports_by_IATA_and_ICAO_code
@@ -70,11 +88,11 @@ con la disponibilidad más inmediata entre dos aeropuertos para una persona.
 
 
 
-4 - Tecnologías utilizadas:
+5 - Tecnologías utilizadas:
 
 
 
-
+## HTML - CSS ##
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white&labelColor=101010)]()
 
 ![ninjamock](https://user-images.githubusercontent.com/123706095/228195824-90dec791-607f-487e-a381-f37962f5bced.png)
