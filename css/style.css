@@ -8,13 +8,17 @@
 }
 
 body {
-	background-color: rgba(10, 29, 137, 0.928);
+	/* background-color: rgba(10, 29, 137, 0.928); */
+	/* background-image: linear-gradient(45deg, red 0 50%, blue 50% 100%); */
+	/* background-repeat: no-repeat; */
+	/* background-image: url(https://www.grecia.info/es/wp-content/uploads/sites/49/grecia.jpg); */
 	transition: 0.3s ease all;
 	/* background-color: rgba(188, 156, 177, 0.15); */
 	background-size: cover;
 	color: #333;
 	font-size: 16px;
 	line-height: 1.5;
+	background-image: url(../img/grecia.jpg);
 }
 
 body.dark {
@@ -50,7 +54,7 @@ form {
 	box-shadow: 16px 16px 13px rgba(0, 0, 0, 0.5);
 	border-radius: 8px;
 	flex-direction: column;
-	/* position: relative; */
+	position: relative;
 }
 
 /* .autocomplete {
@@ -139,8 +143,9 @@ input[type="text"] {
 button[type="submit"] {
 	background-color: #fc3d34;
 	display: flex;
-	margin: 0 auto;
-	justify-content: center;
+	margin-right: auto;
+	margin-top: 1rem;
+	justify-content: right;
 	color: #fff;
 	border: none;
 	padding: 10px 20px;
@@ -149,8 +154,32 @@ button[type="submit"] {
 	font-weight: 500;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
-	flex-direction: row;
-	align-content: flex-start;
+	/* display: inline-block; */
+	/* background-size: contain; */
+	/* place-content: space-evenly; */
+	/* flex-direction: row; */
+	align-content: start;
+}
+
+button[type="clase"] {
+	background-color: #fc3d34;
+	display: flex;
+	/* background-size: contain;
+	margin: 0 auto; */
+	/* justify-content: right; */
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: 500;
+	margin-left: auto;
+	margin-top: 1rem;
+	/* margin-bottom: 1rem; */
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	/* flex-direction: row; */
+	align-content: flex-end;
 }
 
 button[type="submit"]:hover {
@@ -214,7 +243,8 @@ button[type="submit"]:hover {
 }
 
 .switch {
-	background: 343D58;
+	/* 343D58 */
+	background: #000;
 	border-radius: 1000px;
 	border: none;
 	position: relative;
@@ -253,10 +283,25 @@ button[type="submit"]:hover {
 	color: #fff;
 }
 
-@media all and (max-width: 600px) {
+@media (min-width: 500px) {
 	div {
-		width: 100%;
+		/* width: 100%; */
 		height: auto;
 		margin-left: 10px;
 	}
+	/* 
+	body {
+		background-image: inherit;
+	} */
+
+	form {
+		width: 300vw;
+	}
+
+	/* buttton[type="clase"] {
+		flex-direction: column;
+	}
+	buttton[type="submit"] {
+		flex-direction: column;
+	} */
 }

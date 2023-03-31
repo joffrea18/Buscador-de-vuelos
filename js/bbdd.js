@@ -763,7 +763,28 @@ let codAirports = [
 	{ cod: "ZAZ", airport: "Aeropuerto de Zaragoza, Zaragoza España." },
 ];
 
-export { codAirports };
+// export { codAirports };
+
+function inputAirOrigin(e) {
+	window.setInterval(() => {
+		if (e.key == codAirports[i].cod) {
+			// la condición de que si ese array devuelto cumple con:
+			if (e.target.value.length >= 1) {
+				let ulDestinationToolTip = document.querySelector(
+					"#destinationToolTip"
+				);
+				let h = codAirports[i].cod + " " + codAirports[i].airport;
+				// Creo un Li para agregar los resultados
+				let autocompLi = document.createElement("li");
+				autocompLi.innerHTML = `${h}`;
+				// Agrego
+				ulDestinationToolTip.append(autocompLi);
+			}
+			console.log(e);
+		}
+	});
+}
+
 // Llamo los inputs
 // let autocompleteOriginAirport = document.getElementById("#origin");
 // let autocompleteDestinationAirport = document.getElementById("#destination");
