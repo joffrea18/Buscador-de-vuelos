@@ -24,14 +24,19 @@ con la disponibilidad más inmediata entre dos aeropuertos para una persona.
   
     a - Sólo se puede utilizar una interfaz mediante la cual se captarán los datos;
         utilizando las funciones manejadoras.
+	
     b - Realizaremos una petición a una API externa para la extracción de los datos;
         para esto utilizaremos el médoto fetch().
+	
     d - Se capturarán los posibles errores insertados en un principio y se informará
 	    de ellos, esto lo realizaremos mediante los métodos de try{}catch{}.
+	    
     e - Captamos los eventos y posteriormente los imrpimimos en el HTML con los métodos
     	del Form y la slección / creación de los Attribute.
+	
 	f - Ejecutaremos las condicionantes los cuales nos darán acceso a los
 	    posibles panoramas que se puedan presentar if{}else{}.
+	    
 
 2 - El alcance de la Aplicación Desarrollada será:
 
@@ -41,9 +46,10 @@ con la disponibilidad más inmediata entre dos aeropuertos para una persona.
 	2.3 - Validar los datos de origen y destino introducidos e imprimir el número de asientos,
 	      Fechas y precio disponibles.
 	      
-	2.4 - La aplicación asume que el vuelo es para una persona y con fecha del día siguiente al      	       actual.
+	2.4 - La aplicación asume que el vuelo es para una persona y con fecha del día siguiente al actual.
 	
-	2.5 - Si hay algún error (aeropuertos no existen, no hay vuelos, error de conexión, etc...) la 		      aplicación informará del error en pantalla.
+	2.5 - Si hay algún error (aeropuertos no existen, no hay vuelos, error de conexión, etc...)
+	      la aplicación informará del error en pantalla.
 	
 	2.6 - La aplicación permite repetir la búsqueda con otros aeropuertos.
 
