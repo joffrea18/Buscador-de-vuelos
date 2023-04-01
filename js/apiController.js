@@ -30,7 +30,8 @@ export async function getVuelos(
   IATAOrigin,
   IATADestination,
   passengers,
-  departureDate
+  departureDate,
+  classType
 ) {
   //función encargada de recuperar los vuelos según los parámetros dados desde le módulo main
   try {
@@ -66,7 +67,7 @@ export async function getVuelos(
         flightFilters: {
           cabinRestrictions: [
             {
-              cabin: "BUSINESS",
+              cabin: classType,
               coverage: "MOST_SEGMENTS",
               originDestinationIds: ["1"],
             },

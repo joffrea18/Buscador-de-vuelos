@@ -8,54 +8,70 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <div class="console-container">
-      <span id="text"></span>
-      <div class="console-underscore" id="console">&#95;</div>
-    </div>
-    <form id="search-form">
-      <label for="origin">Aeropuerto de origen:</label>
-      <div class="inputContainer">
-        <input
-          type="text"
-          id="origin"
-          name="origin"
-          minlength="15"
-          required
-          form="novalidatedform"
-          placeholder="Introduce un código de aeropuerto o una ciudad y pulsa INTRO"
-        />
-        <img
-          id="loaderOrigin"
-          class="loaderOrigin"
-          src="./img/inputLoading.gif"
-        />
-      </div>
-      <ul id="originToolTip">
-        <li></li>
-      </ul>
-      <label for="destination">Aeropuerto de destino:</label>
-      <div class="inputContainer">
-        <input
-          type="text"
-          id="destination"
-          name="destination"
-          minlength="15"
-          required
-          form="novalidatedform"
-          placeholder="Introduce un código de aeropuerto o una ciudad y pulsa INTRO"
-        />
-        <img
-          id="loaderDestination"
-          class="loaderDestination"
-          src="./img/inputLoading.gif"
-        />
-      </div>
-      <ul id="destinationToolTip">
-        <li></li>
-      </ul>
-      <button type="submit">Buscar vuelo</button>
-    </form>
-    <section id="result"></section>
+    <header>
+      <section class="console-container">
+        <span id="text"></span>
+        <div class="console-underscore" id="console">&#95;</div>
+      </section>
+    </header>
+    <main>
+      <form id="search-form">
+        <label for="class">Seleccionar clase</label>
+        <select id="classSelector">
+          <option value="ECONOMY">Económica</option>
+          <option value="ECONOMY_PREMIUM">Económica premium</option>
+          <option value="BUSINESS">Business</option>
+          <option value="FIRST">Primera</option>
+        </select>
+        <label for="origin">Aeropuerto de origen:</label>
+        <section class="inputContainer">
+          <input
+            type="text"
+            id="origin"
+            name="origin"
+            minlength="15"
+            required
+            form="novalidatedform"
+            placeholder="Introduce un código de aeropuerto o una ciudad"
+          />
+          <img
+            id="loaderOrigin"
+            class="loaderOrigin"
+            src="./img/inputLoading.gif"
+          />
+        </section>
+        <ul id="originToolTip">
+          <li></li>
+        </ul>
+        <label for="destination">Aeropuerto de destino:</label>
+        <div class="inputContainer">
+          <input
+            type="text"
+            id="destination"
+            name="destination"
+            minlength="15"
+            required
+            form="novalidatedform"
+            placeholder="Introduce un código de aeropuerto o una ciudad"
+          />
+          <img
+            id="loaderDestination"
+            class="loaderDestination"
+            src="./img/inputLoading.gif"
+          />
+        </div>
+        <ul id="destinationToolTip">
+          <li></li>
+        </ul>
+        <section class="formButtons">
+          <button type="submit">Buscar vuelo</button>
+          <button type="reset">Borrar campos</button>
+        </section>
+      </form>
+    </main>
+    <footer>
+      <p>&copy 2023 by JSB18RT A-tEAM</p>
+    </footer>
     <script type="module" src="./js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
