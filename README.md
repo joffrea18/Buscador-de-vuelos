@@ -87,7 +87,7 @@ con la disponibilidad más inmediata entre dos aeropuertos para una persona.
 
 
 
-- Para mayor información del uso de método Fetch que necesitaremos al recorrer el Json que extraemos al llamar a la Api.
+- Con este podéis obtener mayor información del uso de método Fetch, que necesitaremos al recorrer el Json que extraemos al llamar a la Api.
 
     https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
