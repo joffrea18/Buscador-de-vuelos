@@ -97,23 +97,3 @@ export async function getVuelos(
   }
 }
 
-export async function getAirports(searchString) {
-  //Esta función recuperará de la API de aeropuertos el nombre del mismo según un dato buscado, la API devuelve
-  //tanto nombre de aeropuerto como su código IATA, necesario para buscar vuelos.
-  tokenRequest = await getToken();
-  token = tokenRequest.access_token;
-  //llamamos a la API y esperamos respuesta
-  let response = fetch(
-    `https://test.api.amadeus.com/v1/reference-data/locations?subType=AIRPORT&keyword=${searchString}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
-  let data = (await response).json();
-  //return response from server that will handled by main module
-  return data;
-}

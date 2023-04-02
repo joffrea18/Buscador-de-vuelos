@@ -1,9 +1,21 @@
-import { getVuelos, getAirports } from "./apiController.js";
-import consoleText from "./coreEffects.js";
+import { getVuelos } from "./apiController.js";
+import { mostrarSaludo, txtWellcome } from "./layoutController.js";
+import { inputCodeOrigin, inputCodeDestination } from "./autocomplete.js";
 
-//SOLO PARA TESTING, estas variables no son tomadas en cuenta en producción
-let IATAOrigin = "MAD";
-let IATADestination = "PAR";
+//variables para el asistente de inicio
+let pasoAsistente;
+let confirmText ;
+let htmlStep;
+let title;
+
+mostrarSaludo("any","FlyWithMe!");
+setInterval(()=>{
+  mostrarSaludo("any",txtWellcome[Math.floor(Math.random()*15)]);
+},2500)
+
+resetAsistente();
+showHelp();
+
 //variables traspasadas a la API junto a los IATA seleccionados por el usuario
 let passengers = 1;
 let tomorrow = new Date();
@@ -19,38 +31,108 @@ let interval;
 
 //tomamos los inputs del formulario
 let inputOriginAirport = document.querySelector("#origin");
-let imgLoaderOrigin = document.querySelector("#loaderOrigin");
 let inputDestinationAirport = document.querySelector("#destination");
-let imgLoaderDestination = document.querySelector("#loaderDestination");
 let selectElement = document.querySelector("#classSelector");
 
-//tomamos el boton
+//tomamos los botones
 let btnElement = document.querySelector("button[type='submit']");
 let btnReset = document.querySelector("button[type='reset']");
+let btnHelp = document.querySelector("#help");
 
-//tomamos los tooltips del formulario
-let ulOriginToolTip = document.querySelector("#originToolTip");
-let ulDestinationToolTip = document.querySelector("#destinationToolTip");
+//tomamos los tooltips del formulario y los exportamos para tratarlos en el módulo "autocomplete";
+export let ulOriginToolTip = document.querySelector("#originToolTip");
+export let ulDestinationToolTip = document.querySelector("#destinationToolTip");
 
-//añadimos los listeners necesarios para la búsqueda de aeropuerto
-inputOriginAirport.addEventListener("input", originInputHandlers);
-inputDestinationAirport.addEventListener("input", destinationInputHandlers);
+//añadimos los listeners necesarios para la búsqueda de aeropuerto y validación de formulario y otros botones
+inputOriginAirport.addEventListener("input", inputCodeOrigin);
+inputDestinationAirport.addEventListener("input", inputCodeDestination);
 btnElement.addEventListener("click", clickHandler);
+btnHelp.addEventListener("click",showHelp);
 btnReset.addEventListener("click", () => {
   inputOriginAirport.value = "";
   inputDestinationAirport.value = "";
 });
 
+function showHelp()
+{
+
+  Swal.fire({
+    title: title,
+    heightAuto: false,
+    html: htmlStep,
+    showCancelButton: true,
+    focusConfirm: false,
+    confirmButtonText:
+      confirmText,
+    cancelButtonText:
+      'Cerrar',
+    
+  }).then((botonPulsado) =>{
+    if(botonPulsado.isConfirmed)
+    {
+      switch (pasoAsistente)
+      {
+        case 1:
+        title="Selecciona origen y destino";
+        htmlStep = '<div class="mainHelp">' +
+        '<img class="asistImg" style="width:250px;" src="./img/inputGif.gif" />' +
+        '<section><p style="text-align:left;">Selecciona tanto en Aeropuerto de Origen como en Aeropuerto de destino.<br/>Para ello, puedes buscar por IATA, ciudad, nombre de aeropuerto, pais, etc... ¡Siéntete libre de explorar el mundo!</p></section>' +
+        '</div>';
+        pasoAsistente++;
+        showHelp();
+        break;
+        case 2:
+        title="Elige entre los aeropuertos disponibles";
+        htmlStep = '<div class="mainHelp">' +
+        '<img class="asistImg" style="width:250px;" src="./img/autocomplete.gif" />' +
+        '<section><p style="text-align:left;">Mientras buscas, verás unos resultados en un cuadro de ayuda bajo el texto, selecciona el aeropuerto correcto haciendo click sobre él</p></section>' +
+        '</div>';
+        pasoAsistente++;
+        showHelp();
+        break;
+        case 3:
+        title="¡Encuentra tu vuelo!";
+        htmlStep = '<div class="mainHelp">' +
+        '<img class="asistImg" style="width:250px;" src="./img/button.webp" />' +
+        '<section><p style="text-align:left;">Una vez que tienes claro desde donde sales y a donde quieres ir, pulsa en <strong>Buscar Vuelo</strong> para que nuestra maquinaria se ponga en marcha<br/><br/>Si todo ha ido bien, verás el mejor vuelo para la clase elegida, con información sobre sus escalas, tiempos de tránsito, terminales de salida y llegadas, precio por pasajero, avión, número de vuelo y aerolínea, ¿no te parece maravilloso?</p></section>' +
+        '</div>';
+        pasoAsistente=0;
+        confirmText = "¡Quiero probarlo!"
+        showHelp();
+        break;
+        default:
+         resetAsistente();
+      }
+    }
+    else
+    {
+      resetAsistente();
+    }
+  })
+}
+
+function resetAsistente()
+{
+  pasoAsistente=1;
+  confirmText = "Siguiente >>";
+  htmlStep = '<div class="mainHelp">' +
+  '<img class="azafata" style="width: 180px;" src="./img/azafata.jpg" />' +
+  '<section><p style="text-align:left;">Te damos la bienvenida a nuestra fántástica app para poder buscar un vuelo express para una persona en el día de mañana<br/><br/>Con esta pequeña ayuda aprenderás a usar nuestra APP, ¡verás que fácil!</p></section>' +
+  '</div>';
+  title="Bienvenid@ a <strong>FlyWithMe</strong>";
+}
+
 async function clickHandler(e) {
+  e.preventDefault();
   //validar antes los inputs, deben contener un dato válido
   let originAirport = inputOriginAirport.value;
   let destinationAirport = inputDestinationAirport.value;
-  //cada intro debe ser una cadena con una coma, separando IATA con NOMBRE DE AEROPUERTO
-  //la cadena después de aplicar un array debe tener justo 2 elementos
-
+  //Cada input debe tener una cadena seleccionada en los tooltips, la condicion es que su elemento 0 tras hacerle
+  //el split sea un IATA de 3 caracteres
+  
   if (
-    originAirport.split(",").length !== 2 ||
-    destinationAirport.split(",").length !== 2
+    originAirport.split(",")[0].length !== 3 ||
+    destinationAirport.split(",")[0].length !== 3
   ) {
     errorHandler(
       "En los cuadros de búsqueda, introduce algún dato y selecciona algún aeropuerto coincidente en la lista mostrada",
@@ -147,7 +229,7 @@ async function clickHandler(e) {
 function segmentsSection(arraySegments) {
   let documentFragment = "";
   for (let segment of arraySegments) {
-    documentFragment += "<p>";
+    documentFragment += '<section class="segmentsSectionItem"><p>';
     let departureDate = new Date(segment.departure.at);
     let arrivalDate = new Date(segment.arrival.at);
     let departureDateString = `${departureDate.getDate()}/${
@@ -180,7 +262,7 @@ function segmentsSection(arraySegments) {
     documentFragment += `<p>Aerolínea: <strong>${segment.carrierCode}</strong></p>`;
     documentFragment += `<p>Duración: <strong>${segment.duration.substring(
       2
-    )}</strong></p>`;
+    )}</strong></p></section>`;
   }
   return documentFragment;
 }
@@ -224,130 +306,13 @@ function segments(arraySegments) {
   return documentFragment;
 }
 
-function originInputHandlers(e) {
-  //este manejador controla que cuando borramos lo que hayamos introducido debe desaparecer el spinner y el tooltip de ayuda
-  clearInterval(interval);
-  let targetWidth = e.currentTarget.offsetWidth;
-  let originAutocompleteValue = e.target.value;
-  if (e.target.value.length < 3) {
-    ulOriginToolTip.innerHTML = "";
-    ulOriginToolTip.style.display = "none";
-    imgLoaderOrigin.style.display = "none";
-  } else {
-    imgLoaderOrigin.style.display = "block";
-    interval = setInterval(() => {
-      ulOriginToolTip.style.width = targetWidth + "px";
-      showOriginAutocomplete(originAutocompleteValue);
-    }, 2000);
-  }
-}
-
-async function showOriginAutocomplete(value) {
-  imgLoaderOrigin.style.display = "inherit";
-  clearInterval(interval);
-  //llamamos a la api y mostramos resultados en UL
-  //mostramos UL pues ahí está el gif de carga
-  let airports = await getAirports(value);
-  try {
-    if (airports.meta.count === 0) {
-      ulOriginToolTip.style.display = "inherit";
-      ulOriginToolTip.innerHTML = "";
-      let newLi = document.createElement("li");
-      newLi.innerHTML = "No se encontraron aeropuertos";
-      ulOriginToolTip.append(newLi);
-    } else {
-      let liFragment = document.createDocumentFragment();
-      ulOriginToolTip.style.display = "inherit";
-      ulOriginToolTip.innerHTML = "";
-      for (let airport of airports.data) {
-        let newLi = document.createElement("li");
-        newLi.innerHTML = `<a href="#"><strong>${airport.iataCode}</strong>, ${airport.name}</a>`;
-        newLi.addEventListener("click", (liEvent) => {
-          let airportText = liEvent.target.textContent;
-          inputOriginAirport.value = airportText;
-          ulOriginToolTip.style.display = "none";
-          inputDestinationAirport.focus();
-        });
-        liFragment.appendChild(newLi);
-      }
-      ulOriginToolTip.append(liFragment);
-    }
-    imgLoaderOrigin.style.display = "none";
-  } catch (error) {
-    errorHandler(
-      "Agradecemos que no uses carácteres raros ni tildes en el cuadro de búsqueda",
-      "Dato no válido"
-    );
-  }
-}
-
-function destinationInputHandlers(e) {
-  //este manejador controla que cuando borramos lo que hayamos introducido debe desaparecer el spinner y el tooltip de ayuda
-  clearInterval(interval);
-  let targetWidth = e.currentTarget.offsetWidth;
-  let destinationAutocompleteValue = e.target.value;
-  if (e.target.value.length < 3) {
-    ulDestinationToolTip.innerHTML = "";
-    ulDestinationToolTip.style.display = "none";
-    imgLoaderDestination.style.display = "none";
-  } else {
-    imgLoaderDestination.style.display = "block";
-    interval = setInterval(() => {
-      ulDestinationToolTip.style.width = targetWidth + "px";
-      showDestinationAutocomplete(destinationAutocompleteValue);
-    }, 2000);
-  }
-}
-
-async function showDestinationAutocomplete(value) {
-  imgLoaderDestination.style.display = "inherit";
-  clearInterval(interval);
-  //llamamos a la api y mostramos resultados en UL
-  //mostramos UL pues ahí está el gif de carga
-  let airports = await getAirports(value);
-  try {
-    if (airports.meta.count === 0) {
-      ulDestinationToolTip.style.display = "inherit";
-      ulDestinationToolTip.innerHTML = "";
-      let newLi = document.createElement("li");
-      newLi.innerHTML = "No se encontraron aeropuertos";
-      ulDestinationToolTip.append(newLi);
-    } else {
-      let liFragment = document.createDocumentFragment();
-      ulDestinationToolTip.style.display = "inherit";
-      ulDestinationToolTip.innerHTML = "";
-      for (let airport of airports.data) {
-        let newLi = document.createElement("li");
-        newLi.innerHTML = `<a href="#"><strong>${airport.iataCode}</strong>, ${airport.name}</a>`;
-        newLi.addEventListener("click", (liEvent) => {
-          let airportText = liEvent.target.textContent;
-          inputDestinationAirport.value = airportText;
-          ulDestinationToolTip.style.display = "none";
-          btnElement.focus();
-        });
-        liFragment.appendChild(newLi);
-      }
-      ulDestinationToolTip.append(liFragment);
-    }
-    imgLoaderDestination.style.display = "none";
-  } catch (error) {
-    //mostramos error usando la librería sweetAlert2
-    errorHandler(
-      "Agradecemos que no uses carácteres raros ni tildes en el cuadro de búsqueda",
-      "Dato no válido"
-    );
-  }
-}
-
-function errorHandler(text, title) {
+export function errorHandler(text, title) {
   Swal.fire({
     icon: "error",
     title: title,
     text: text,
     heightAuto: false,
   });
-  imgLoaderOrigin.style.display = "none";
   ulOriginToolTip.style.display = "none";
-  imgLoaderDestination.style.display = "none";
   ulDestinationToolTip.style.display = "none";
 }
