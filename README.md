@@ -45,7 +45,7 @@ con la disponibilidad más inmediata entre dos aeropuertos para una persona.
 	
 	2.3 - Validar los datos de origen y destino introducidos e imprimir el número de asientos,
 	      Fechas y precio disponibles, además de otros datos relativos al vuelo, como erolínea, 
-	      avión utilizado, tiempo de tránsito, nº de vuelo y escalas
+	      avión utilizado, tiempo de tránsito, nº de vuelo y escalas.
 	      
 	2.4 - La aplicación asume que el vuelo es para una persona y con fecha del día siguiente al actual.
 	
@@ -54,7 +54,7 @@ con la disponibilidad más inmediata entre dos aeropuertos para una persona.
 	
 	2.6 - La aplicación permite repetir la búsqueda con otros aeropuertos.
 	
-	2.7 - La aplicación contene un pequeño asistente de ayuda para que se sepa utilizar.
+
 
 	
 
@@ -70,6 +70,8 @@ con la disponibilidad más inmediata entre dos aeropuertos para una persona.
 	      
 	3.3 - Recibir los datos introducidos y contrastarlos para mediante el autocompletado,
 	      presentar las opciones semejantes.
+	
+	3.4 - La aplicación contiene un pequeño asistente de ayuda que te indicará paso a paso cómo se puede utilizar.
 	 	
 
 
