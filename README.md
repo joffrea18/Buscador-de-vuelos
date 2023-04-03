@@ -71,7 +71,8 @@ con la disponibilidad más inmediata entre dos aeropuertos para una persona.
 	3.3 - Recibir los datos introducidos y contrastarlos para mediante el autocompletado,
 	      presentar las opciones semejantes.
 	
-	3.4 - La aplicación contiene un pequeño asistente de ayuda que te indicará paso a paso cómo se puede utilizar.
+	3.4 - La aplicación contiene un pequeño asistente de ayuda que te indicará paso a paso
+	      cómo se puede utilizar.
 	 	
 
 
