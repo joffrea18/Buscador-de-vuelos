@@ -40,11 +40,10 @@ con la disponibilidad más inmediata entre dos aeropuertos para una persona.
 
 2 - El alcance de la Aplicación Desarrollada será:
 
-	2.1 - Verificar las iniciales introducidas, las cuales no podrán pasar de una longitud
-	      de tres (3) caracteres.
+	2.1 - Los cuadros de búsqueda es un buscador global que filtra un array de aeropuertos el cual se mostrará en un tooltip para selección correcta de aeropuerto.
 	
 	2.3 - Validar los datos de origen y destino introducidos e imprimir el número de asientos,
-	      Fechas y precio disponibles.
+	      Fechas y precio disponibles, además de otros datos relativos al vuelo, como erolínea, avión utilizado, tiempo de tránsito, nº de vuelo y escalas
 	      
 	2.4 - La aplicación asume que el vuelo es para una persona y con fecha del día siguiente al actual.
 	
@@ -52,6 +51,8 @@ con la disponibilidad más inmediata entre dos aeropuertos para una persona.
 	      la aplicación informará del error en pantalla.
 	
 	2.6 - La aplicación permite repetir la búsqueda con otros aeropuertos.
+	
+	2.7 - La aplicación contene un pequeño asistente de ayuda para que se sepa utilizar.
 
 	
 
