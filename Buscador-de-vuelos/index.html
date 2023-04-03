@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>FlyWithMe</title>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="./apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="./favicon-16x16.png"
+		/>
+		<link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5" />
+		<meta name="msapplication-TileColor" content="#da532c" />
+		<meta name="theme-color" content="#ffffff" />
+		<link rel="stylesheet" href="./css/home_styles.css" />
+	</head>
+	<body>
+		<header>
+			<h1 id="saludo"></h1>
+		</header>
+		<main>
+			<form id="search-form" class="day">
+				<label class="dia" for="classSelector">Seleciona una clase</label>
+				<select id="classSelector">
+					<option value="ECONOMY">Económica</option>
+					<option value="ECONOMY_PREMIUM">Económica premium</option>
+					<option value="BUSINESS">Business</option>
+					<option value="FIRST">Primera</option>
+				</select>
+				<label for="origin" class="dia">Aeropuerto de origen:</label>
+				<section class="inputContainer">
+					<input type="text" id="origin" name="origin" required />
+				</section>
+				<ul id="originToolTip">
+					<li></li>
+				</ul>
+
+				<label for="destination" class="dia">Aeropuerto de destino:</label>
+				<section class="inputContainer">
+					<input type="text" id="destination" name="destination" required />
+				</section>
+				<ul id="destinationToolTip">
+					<li></li>
+				</ul>
+				<section class="formButtons">
+					<button type="submit" title="Buscar el mejor vuelo para mañana">
+						Buscar vuelo
+					</button>
+					<button title="Limpiar campos para nueva búsqueda" type="reset">
+						Borrar campos
+					</button>
+
+					<button
+						class="inicial"
+						type="button"
+						title="Cambiar de modo oscuro / claro"
+						id="dark"
+					>
+						<img src="./img/luna.png" alt="" />
+					</button>
+					<button
+						class="inicial"
+						type="button"
+						title="¿Cómo funciona?"
+						id="help"
+					></button>
+				</section>
+			</form>
+			<section class="evento-galeria">
+				<section
+					style="background-image: url(./img/calle-akihabara-tokio.webp)"
+				></section>
+				<section
+					style="background-image: url(./img/community-of-madrid.jpg)"
+				></section>
+				<section style="background-image: url(./img/losAngeles.jpg)"></section>
+				<section style="background-image: url(./img/nueva-york.jpg)"></section>
+				<section
+					style="background-image: url(./img/riviera-maya-cenote.jpg)"
+				></section>
+			</section>
+		</main>
+		<footer>
+			<h3>© 2023 by JSB18RT Team - A</h3>
+		</footer>
+		<script type="module" src="./js/main.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	</body>
+</html>
