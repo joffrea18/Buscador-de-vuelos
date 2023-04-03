@@ -17,7 +17,7 @@ Este repositorio está siendo destinado al desarrollo del primer proyecto de los
 estudiantes del grupo A 📝 del Bootcamp edición JS18RT, el cual tendrá por
 objetivos:
 
-1- Desarrollo de una Aplicación web para la determinación del vuelo más económicos 💶 
+1- Desarrollo de una Aplicación web para la determinación del vuelo más económico 💶 
 con la disponibilidad más inmediata entre dos aeropuertos para una persona.
 
   1.1 - Dicha aplicación se desarrollará con las siguientes especificaciones:
